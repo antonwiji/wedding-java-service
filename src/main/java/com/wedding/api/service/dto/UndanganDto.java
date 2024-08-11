@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 @Builder
 @Data
@@ -17,6 +18,6 @@ public class UndanganDto {
 
     private boolean delFlag;
 
-    private List<ValueUndanganDto> content;
+    private List<Map<String, String>> content;
 
 }
