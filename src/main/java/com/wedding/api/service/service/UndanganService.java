@@ -1,5 +1,6 @@
 package com.wedding.api.service.service;
 
+import com.testing.core.utils.utils.CoreUtils;
 import com.wedding.api.service.dto.UndanganDto;
 import com.wedding.api.service.dto.UndanganDtoGrup;
 import com.wedding.api.service.dto.ValueUndanganDto;
@@ -27,6 +28,9 @@ public class UndanganService {
     @Autowired
     private GenerateResponse generateResponse;
 
+    @Autowired
+    private CoreUtils coreUtils;
+
     public ResponseEntity<UndanganDto> getAllUndangan() {
         try {
             List<UndanganEntity> undanganData = undanganRepository.findAll();
@@ -42,6 +46,20 @@ public class UndanganService {
             return generateResponse.generate(undanganDtoBuilderStream, HttpStatus.OK, "Success");
         } catch (Exception err) {
             return generateResponse.generate(err.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, "Errors");
+        }
+    }
+
+    public void reloadUndangan() {
+        try {
+            List<UndanganEntity> dataUndangan = undanganRepository.findAll();
+//            System.out.println(dataUndangan);
+            System.out.println("data data: " + dataUndangan);
+            Object data = coreUtils.incerment(1, 2);
+            System.out.println("data redis: " + data);
+            System.out.println("data data2: " + dataUndangan);
+
+        }catch (Exception err){
+
         }
     }
 

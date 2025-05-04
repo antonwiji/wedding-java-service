@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 @Service
 public class GenerateResponse {
-    public <T> ResponseEntity<T> generate(Object data, HttpStatus httpStatus, String message) {
+    public static  <T> ResponseEntity<T> generate(Object data, HttpStatus httpStatus, String message) {
 
         HashMap<String, Object> mapping = new HashMap<>();
 

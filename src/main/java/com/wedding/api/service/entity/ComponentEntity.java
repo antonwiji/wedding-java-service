@@ -15,6 +15,7 @@ public class ComponentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "component")
+
     private String component;
 
 }
